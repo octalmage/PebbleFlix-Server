@@ -65,6 +65,10 @@ function ping()
 			request("http://blueshirtdesign.com/con/con.php?action=add&host=" + host + "&ip=" + ip + "&app=pebbleflix", function(error, response, body) 
 			{
 			});
+			
+			
+			//New url using zeroconf
+			//request("http://desolate-ridge-4131.herokuapp.com/add/pebbleflix/" + host + "/" + ip, function(error, response, body) {});
 		});
 	});
 }
