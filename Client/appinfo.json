@@ -1,0 +1,40 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "octalmage",
+    "longName": "PebbleFlix",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/pebbleflix_transparent.png",
+                "name": "IMAGE_BACKGROUND",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/test.png",
+                "name": "IMAGE_UP",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/down.png",
+                "name": "IMAGE_DOWN",
+                "type": "png-trans"
+            },
+            {
+                "file": "images/play.png",
+                "name": "IMAGE_PLAY5",
+                "type": "png-trans"
+            }
+        ]
+    },
+    "shortName": "PebbleFlix",
+    "uuid": "246bfe83-fab6-48e0-b517-aa40edcb413a",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
