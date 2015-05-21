@@ -29,7 +29,7 @@ menu.append(OpenMenu);
 menu.append(ExitMenu);
 tray.menu = menu;
 
-win.showDevTools()
+// win.showDevTools()
 
 ExitMenu.click = function()
 {
