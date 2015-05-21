@@ -7,5 +7,9 @@
     "toolbar": false,
     "show": false,
     "show_in_taskbar": false
+   },
+   "dependencies": {
+     "express": "^3.4.8",
+     "request": "^2.34.0"
    }
 }
