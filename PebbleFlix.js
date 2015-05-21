@@ -48,49 +48,14 @@ win.on('close', function()
 
 });
 
-var app = express();
+//Ping zeroconf server every minute using Node.js timers.
+global.setInterval(function()
+{
+	ping();
 
+}, 60000);
 
-var net = require('net');
-function getNetworkIP(callback) {
-  var socket = net.createConnection(80, 'www.google.com');
-  socket.on('connect', function() {
-    callback(undefined, socket.address().address);
-    socket.end();
-  });
-  socket.on('error', function(e) {
-    callback(e, 'error');
-  });
-}
-
-
-
-
-function ping()
-{	
-	request("http://pr.ojectblue.com/con/chost.php", function(error, response, body) 
-	{
-		host=body
-		
-		getNetworkIP(function (error, ip) 
-		{
-			console.log(ip);
-			request("http://blueshirtdesign.com/con/con.php?action=add&host=" + host + "&ip=" + ip + "&app=pebbleflix", function(error, response, body) 
-			{
-			});
-			
-			
-			//New url using zeroconf
-			//request("http://desolate-ridge-4131.herokuapp.com/add/pebbleflix/" + host + "/" + ip, function(error, response, body) {});
-		});
-	});
-}
-
-ping()
-
-
-
-
+ping();
 
 //Setup API endpoints.
 app.get('/1', function(req, res)
@@ -114,8 +79,10 @@ app.get('/3', function(req, res)
 	res.send('Success');
 });
 
-server = app.listen(8189, function() {
-    console.log('Listening on port %d', server.address().port);
+//Start API Server
+server = app.listen(8189, function()
+{
+	console.log('Listening on port %d', server.address().port);
 });
 
 //Press a key using applescript.
@@ -126,9 +93,32 @@ function keySend(keycode)
 	exec(script);
 }
 
-
-global.setInterval(function ()
+//Get external IP.
+function getNetworkIP(callback)
 {
-	ping();
+	var socket = net.createConnection(80, 'www.google.com');
+	socket.on('connect', function()
+	{
+		callback(undefined, socket.address().address);
+		socket.end();
+	});
+	socket.on('error', function(e)
+	{
+		callback(e, 'error');
+	});
+}
 
-}, 60000);
+//Ping zeroconf server.
+function ping()
+{
+	request("http://blueshirtdesign.com/con/chost.php", function(error, response, body)
+	{
+		host = body
+
+		getNetworkIP(function(error, ip)
+		{
+			request("http://blueshirtdesign.com/con/con.php?action=add&host=" + host + "&ip=" + ip + "&app=pebbleflix", function(error, response, body) {});
+
+		});
+	});
+}
