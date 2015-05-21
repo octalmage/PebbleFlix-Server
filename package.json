@@ -2,7 +2,7 @@
   "name": "PebbleFlix",
   "main": "index.html",
   "window": {
-    "title": "node-webkit demo",
+    "title": "PebbleFlix",
     "icon": "link.png",
     "toolbar": false,
     "show": false,
