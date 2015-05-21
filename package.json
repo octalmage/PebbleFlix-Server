@@ -1,8 +1,8 @@
 {
-  "name": "PebbleFlix",
+  "name": "PebbleFlix-Server",
   "main": "index.html",
   "window": {
-    "title": "PebbleFlix",
+    "title": "PebbleFlix Server",
     "icon": "link.png",
     "toolbar": false,
     "show": false,
