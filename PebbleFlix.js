@@ -8,12 +8,22 @@ var app = express();
 var win = gui.Window.get();
 var server;
 
-var tray = new gui.Tray({ icon: 'icon.png' });
+var tray = new gui.Tray(
+{
+	icon: 'icon.png'
+});
 
 var menu = new gui.Menu();
-var OpenMenu=new gui.MenuItem({ type: 'normal', label: 'About' })
-var ExitMenu=new gui.MenuItem({ type: 'normal', label: 'Exit' })
-
+var OpenMenu = new gui.MenuItem(
+{
+	type: 'normal',
+	label: 'About'
+})
+var ExitMenu = new gui.MenuItem(
+{
+	type: 'normal',
+	label: 'Exit'
+})
 
 menu.append(OpenMenu);
 menu.append(ExitMenu);
@@ -21,20 +31,20 @@ tray.menu = menu;
 
 win.showDevTools()
 
-ExitMenu.click = function() 
+ExitMenu.click = function()
 {
 	server.close();
 	win.close(1);
 };
 
-OpenMenu.click = function() 
+OpenMenu.click = function()
 {
 	win.show();
 };
 
-
-win.on('close', function() {
-  this.hide(); 
+win.on('close', function()
+{
+	this.hide();
 
 });
 
