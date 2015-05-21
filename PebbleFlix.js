@@ -92,25 +92,39 @@ ping()
 
 
 
-app.get('/1', function(req, res){
-	keys.send("49");
-  	res.send('Success');
-});
-
-app.get('/2', function(req, res){
-	keys.send("126");
+//Setup API endpoints.
+app.get('/1', function(req, res)
+{
+	//Press space.
+	keySend("49");
 	res.send('Success');
 });
 
-app.get('/3', function(req, res){
-	keys.send("125");
- 	res.send('Success');
+app.get('/2', function(req, res)
+{
+	//Press up key.
+	keySend("126");
+	res.send('Success');
+});
+
+app.get('/3', function(req, res)
+{
+	//Press down key.
+	keySend("125");
+	res.send('Success');
 });
 
 server = app.listen(8189, function() {
     console.log('Listening on port %d', server.address().port);
 });
 
+//Press a key using applescript.
+function keySend(keycode)
+{
+	var applescript = 'tell application "System Events" to key code ' + keycode;
+	var script = "osascript -e '" + applescript + "'";
+	exec(script);
+}
 
 
 global.setInterval(function ()
