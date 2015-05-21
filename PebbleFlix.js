@@ -1,7 +1,10 @@
-var keys = require('keys');
 var request = require("request");
-var express = require('express');
-var gui = require('nw.gui');
+var express = require("express");
+var net = require("net");
+var gui = require("nw.gui");
+var exec = require("child_process").exec;
+
+var app = express();
 var win = gui.Window.get();
 var server;
 
@@ -105,4 +108,3 @@ global.setInterval(function ()
 	ping();
 
 }, 60000);
-
