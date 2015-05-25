@@ -11,6 +11,17 @@
     </style>
   </head>
   <body>
+    <script type="text/javascript">
+
+    var gui = require("nw.gui");
+    var appVersion = gui.App.manifest.version;
+
+    function openUrl()
+    {
+      gui.Shell.openExternal("http://octalmage.github.io/PebbleFlix/");
+    }
+
+    </script>
     <h1>PebbleFlix</h1>
       Placeholder for UI.
   </body>
