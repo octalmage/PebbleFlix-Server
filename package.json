@@ -11,9 +11,10 @@
     "show_in_taskbar": false,
     "width": 300,
     "height": 175
-   },
-   "dependencies": {
-     "express": "^3.4.8",
-     "request": "^2.34.0"
-   }
+  },
+  "dependencies": {
+    "express": "^3.4.8",
+    "request": "^2.34.0",
+    "robotjs": "^0.1.3"
+  }
 }
