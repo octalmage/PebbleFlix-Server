@@ -62,21 +62,21 @@ ping();
 app.get('/1', function(req, res)
 {
 	//Press space.
-	keySend("49");
+	robot.keyTap("space");
 	res.send('Success');
 });
 
 app.get('/2', function(req, res)
 {
 	//Press up key.
-	keySend("126");
+	robot.keyTap("up");
 	res.send('Success');
 });
 
 app.get('/3', function(req, res)
 {
 	//Press down key.
-	keySend("125");
+	robot.keyTap("down");
 	res.send('Success');
 });
 
