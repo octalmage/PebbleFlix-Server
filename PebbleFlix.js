@@ -3,6 +3,7 @@ var express = require("express");
 var net = require("net");
 var gui = require("nw.gui");
 var exec = require("child_process").exec;
+var robot = require("robotjs");
 
 var app = express();
 var win = gui.Window.get();
