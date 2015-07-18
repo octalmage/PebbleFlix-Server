@@ -86,14 +86,6 @@ server = app.listen(8189, function()
 	console.log('Listening on port %d', server.address().port);
 });
 
-//Press a key using applescript.
-function keySend(keycode)
-{
-	var applescript = 'tell application "System Events" to key code ' + keycode;
-	var script = "osascript -e '" + applescript + "'";
-	exec(script);
-}
-
 //Get external IP.
 function getNetworkIP(callback)
 {
