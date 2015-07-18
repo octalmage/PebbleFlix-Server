@@ -3,6 +3,7 @@ var express = require("express");
 var net = require("net");
 var gui = require("nw.gui");
 var exec = require("child_process").exec;
+var robot = require("robotjs");
 
 var app = express();
 var win = gui.Window.get();
@@ -61,21 +62,21 @@ ping();
 app.get('/1', function(req, res)
 {
 	//Press space.
-	keySend("49");
+	robot.keyTap("space");
 	res.send('Success');
 });
 
 app.get('/2', function(req, res)
 {
 	//Press up key.
-	keySend("126");
+	robot.keyTap("up");
 	res.send('Success');
 });
 
 app.get('/3', function(req, res)
 {
 	//Press down key.
-	keySend("125");
+	robot.keyTap("down");
 	res.send('Success');
 });
 
@@ -84,14 +85,6 @@ server = app.listen(8189, function()
 {
 	console.log('Listening on port %d', server.address().port);
 });
-
-//Press a key using applescript.
-function keySend(keycode)
-{
-	var applescript = 'tell application "System Events" to key code ' + keycode;
-	var script = "osascript -e '" + applescript + "'";
-	exec(script);
-}
 
 //Get external IP.
 function getNetworkIP(callback)
